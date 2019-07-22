@@ -26,7 +26,16 @@ class ImageViewerVC: UIViewController {
       self.showNavBarAndOverlay(!isZooming, animated: true)
     }
     imageView.zoomableImageView.onDoubleTap = { [unowned self] in
-      self.imageView.zoomableImageView.setZoomScale(1.0, animated: true)
+      let currentZoomScale = self.imageView.zoomableImageView.zoomScale
+      if currentZoomScale == 1.0 {
+        if navController.isNavigationBarHidden {
+          self.showNavBarAndOverlay(true, animated: true)
+        } else {
+          self.showNavBarAndOverlay(false, animated: true)
+        }
+      } else {
+        self.imageView.zoomableImageView.setZoomScale(1.0, animated: true)
+      }
     }
     
     imageView.setImage(image)
