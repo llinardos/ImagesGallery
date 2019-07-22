@@ -13,6 +13,8 @@ public class GalleryVC: UIViewController {
   
   required init?(coder aDecoder: NSCoder) { return nil }
   
+  public var didSelectImage: (Image) -> Void = { _ in }
+  
   public override func loadView() {
     super.loadView()
     self.view.backgroundColor = UIColor.black
@@ -62,6 +64,11 @@ extension GalleryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
   
   public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return layout.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
+  }
+  
+  public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let image = self.imagesSource.getImages()[indexPath.row]
+    didSelectImage(image)
   }
   
   public override var preferredStatusBarStyle: UIStatusBarStyle {

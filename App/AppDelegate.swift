@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let apiKey = readPexelsAPIKeyFromInfoPlist() ?? ""
     let source = PexelsImagesSource(apiKey: apiKey)
     let app = App(imagesSource: source)
+    self.app = app
     app.run(on: window)
     
     window.makeKeyAndVisible()
