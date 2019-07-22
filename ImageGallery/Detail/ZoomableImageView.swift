@@ -81,6 +81,8 @@ class ZoomableImageView: UIScrollView, UIScrollViewDelegate {
 }
 
 class ZoomableRemoteImageView: UIView {
+  var onLoadingImageError: (Error?) -> Void = { _ in }
+  
   required override init(frame: CGRect = CGRect.zero) {
     super.init(frame: frame)
     
@@ -118,7 +120,7 @@ class ZoomableRemoteImageView: UIView {
         self.spinner.stopAnimating()
         self.zoomableImageView.setImage(image)
       } else {
-        // TODO: do something in case of error, show error and offer retry?
+        self.onLoadingImageError(error)
       }
     }
   }

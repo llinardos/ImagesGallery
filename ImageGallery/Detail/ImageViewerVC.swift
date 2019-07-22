@@ -42,9 +42,14 @@ class ImageViewerVC: UIViewController {
     overlayView.setLines(image.photographerName, String(describing: image.id))
     
     overlayView.onShare = { [unowned self] in self.onShare(image) }
+    
+    imageView.onLoadingImageError = { [unowned self] error in
+      self.onLoadImageError(error)
+    }
   }
   
   var onShare: (Image) -> Void = { _ in }
+  var onLoadImageError: (Error?) -> Void = { _ in }
   
   private func showNavBarAndOverlay(_ show: Bool, animated: Bool) {
     self.navigationController?.setNavigationBarHidden(!show, animated: animated)

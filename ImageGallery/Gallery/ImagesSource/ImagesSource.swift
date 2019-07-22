@@ -8,6 +8,6 @@ public typealias ImagesSourceResult = Swift.Result<ImagesSource, ImagesSourceErr
 
 public enum ImagesSourceError: Swift.Error {
   case unauthorized
-  case noConnection
-  case unexpected
+  case noConnection(Error?)
+  case unexpected(Error?)
 }

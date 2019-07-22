@@ -1,5 +1,6 @@
 import UIKit
 import Layout
+import ErrorVC
 
 public class GalleryVC: UIViewController {
   private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -57,8 +58,14 @@ extension GalleryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     if cell is LoadingMoreCollectionCell {
       self.imagesSource.loadMore { [unowned self] (result) in
         switch result {
-        case .success(_): self.collectionView.reloadData()
-        case .failure(_): break
+        case .success:
+          self.collectionView.reloadData()
+        case .failure(let error):
+          switch error {
+          case .noConnection: self.presentError(.noConnection(error))
+          case .unauthorized: self.presentError(.unautorized(error))
+          case .unexpected: self.presentError(.unknown(error))
+          }
         }
       }
     }
@@ -76,6 +83,12 @@ extension GalleryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
   
   public override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
+  }
+  
+  private func presentError(_ error: ErrorVC.ErrorType) {
+    ErrorVC.presentModally(for: error, over: self, onDismiss: { [unowned self] in
+      self.dismiss(animated: true, completion: nil)
+    })
   }
 }
 

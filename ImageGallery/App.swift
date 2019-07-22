@@ -1,4 +1,5 @@
 import UIKit
+import ErrorVC
 
 public class App {
   private lazy var navController = UINavigationController()
@@ -31,6 +32,12 @@ public class App {
   private func presentDetail(for image: Image) {
     let imageViewerVC = ImageViewerVC(image: image, in: navController)
     self.imageViewerVC = imageViewerVC
+    
+    imageViewerVC.onLoadImageError = { error in
+      ErrorVC.presentModally(for: .unknown(error), over: imageViewerVC, onDismiss: {
+        imageViewerVC.dismiss(animated: true, completion: nil)
+      })
+    }
     
     imageViewerVC.onShare = { [unowned self] image in
       self.shareImage(image)

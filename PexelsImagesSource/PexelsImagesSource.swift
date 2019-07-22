@@ -63,20 +63,28 @@ class GetRandomPhotos {
       super.init(endpoint: Endpoint(.get, "curated?per_page=\(imagesPerPage)&page=\(pageNumber)"), auth: .apiKey(apiKey))
     }
   }
+  
   class ResponseHandler {
     func handle(_ response: Networking.Response) -> Result<[Image], ImagesSourceError> {
       switch response.result {
-      case .noConnnection: return .failure(.noConnection)
-      case .notProcessed(let error): return .failure(.unexpected)
+      case .noConnnection:
+        return .failure(.noConnection(nil))
+      case .notProcessed(let error):
+        return .failure(.unexpected(error))
       case .processed(200, .success(.json(let jsonData, _))):
         return Result(catching: { try JSONDecoder().decode(Response.self, from: jsonData) })
-          .map({ $0.photos.map { $0.toImage() } }).mapError({ error in return .unexpected })
-      case .processed(403, _): return .failure(.unauthorized)
-      case .processed: return .failure(.unexpected)
-      case .unauthorized(let error): return .failure(.unexpected)
+          .map({ $0.photos.map { $0.toImage() } })
+          .mapError({ error in return .unexpected(error) })
+      case .processed(403, _):
+        return .failure(.unauthorized)
+      case .processed:
+        return .failure(.unexpected(nil))
+      case .unauthorized(let error):
+        return .failure(.unexpected(error))
       }
     }
   }
+  
   class Response: Decodable {
     class Photo: Decodable {
       class SRC: Decodable {
