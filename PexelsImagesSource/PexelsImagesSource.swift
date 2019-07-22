@@ -7,6 +7,7 @@ public class PexelsImagesSource: ImagesSource {
   private var apiKey: String
   private var pageNumber: Int = 1
   private var resultsPerPage: Int = 1
+  private var isLoadingMore: Bool = false
   
   public init(apiKey: String, resultsPerPage: Int = 15) {
     self.apiKey = apiKey
@@ -23,11 +24,14 @@ public class PexelsImagesSource: ImagesSource {
   public var thereIsMoreToLoad: Bool = true
   
   public func loadMore(_ callback: @escaping (ImagesSourceResult) -> Void) {
+    guard !isLoadingMore else { return }
+    
     onMainDo({}, onBackgroundDo: { () -> Result<[Image], ImagesSourceError> in
       let request = GetRandomPhotos.Request(apiKey: self.apiKey, imagesPerPage: self.resultsPerPage, pageNumber: self.pageNumber)
       let response = self.server.process(request)
       return GetRandomPhotos.ResponseHandler().handle(response)
     }, thenOnMainDo: { (result) -> Void in
+      self.isLoadingMore = false
       switch result {
       case .success(let newImages):
         self.pageNumber += 1
