@@ -36,7 +36,18 @@ This project uses two external dependencies ([Alamofire](https://github.com/Alam
 4. `ImageGallery` module exposes the class `ImageGallery`. This public class works as a entry point and coordinates the image gallery, the detail and the share. It can be seen as the [popular "coordinator"](http://khanlou.com/2015/01/the-coordinator/), but with a more meaningful and business related name. Also, given the scope and size of each submodule inside the module, there's no need to have a "coordinator"/"controller" by each VC. It's enough with the `App` object. This is another advantage of work in a modular way, you can work with the "pattern" that better fits in each module.
 4. The public API of the `ImageGallery` is an `init` which receives a `ImagesSource` and a `run` which receive the window in which run. 
 5. The Module `App` is the only one module/target which is an `Application`, it instantiates an `PexelsImagesSource` with an API key, setups the `ImageGallery` and `run`s it.
-6. Tests and demos can be added using the `ImageGallery` module, but I run out of time.
+6. Automated tests and automated demos can be added using the `ImageGallery` module, but I run out of time.
+
+## Demo
+
+![](https://github.com/llinardos/ImagesGallery/blob/master/GIFs/image-gallery-iphonex-landscape.gif)
+
+![](https://github.com/llinardos/ImagesGallery/blob/master/GIFs/image-gallery-iphonex-portrait.gif)
+
+
+
+
+
 
 
 
