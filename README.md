@@ -12,8 +12,8 @@ And two extra screens:
 ## Run and Build
 ### 1. Install external dependencies
 This project uses two external dependencies ([Alamofire](https://github.com/Alamofire/Alamofire)) and [SDWebImage](https://github.com/SDWebImage/SDWebImage)) through [Carthage](https://github.com/Carthage/Carthage)). 
-1. Go to the folder containing the `.xcodeproj`.
-2. Run `carthage update --platform=iOS`.
+1. Go to the folder containing the `.xcodeproj` (and the `Cartfile`).
+2. Run `carthage update --platform iOS`.
 
 ### 2. Set the [Pexels](https://www.pexels.com/) API Key
 1. You can obtain one from [here](https://www.pexels.com/api/new/))
