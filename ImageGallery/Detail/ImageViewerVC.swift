@@ -40,14 +40,18 @@ class ImageViewerVC: UIViewController {
     
     imageView.setImage(image)
     overlayView.setLines(image.photographerName, String(describing: image.id))
+    
+    overlayView.onShare = { [unowned self] in self.onShare(image) }
   }
+  
+  var onShare: (Image) -> Void = { _ in }
   
   private func showNavBarAndOverlay(_ show: Bool, animated: Bool) {
     self.navigationController?.setNavigationBarHidden(!show, animated: animated)
     self.showOverlay(show, animated: animated)
   }
   
-  func showOverlay(_ show: Bool, animated: Bool) {
+  private func showOverlay(_ show: Bool, animated: Bool) {
     func _showOverlay(_ show: Bool) {
       if show {
         overlayView.transform = .identity

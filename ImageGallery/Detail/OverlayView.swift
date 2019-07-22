@@ -35,12 +35,20 @@ class OverlayView: UIView {
     
     addSubview(content)
     Layout().allign(.all, of: content, and: self, insets: UIEdgeInsets(top: 0, left: 16, bottom: 8, right: 16))
+    
+    shareButton.addTarget(self, action: #selector(onShareButtonTap), for: .touchUpInside)
   }
   
   func setLines(_ line1: String, _ line2: String) {
     self.line1.text = line1
     self.line2.text = line2
   }
+  
+  @objc private func onShareButtonTap() {
+    self.onShare()
+  }
+  
+  var onShare: () -> Void = {}
   
   required init?(coder aDecoder: NSCoder) { return nil }
 }

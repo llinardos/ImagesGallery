@@ -16,7 +16,8 @@ public class App {
   }
   
   private func presentGallery() {
-    let galleryVC = self.galleryVC ?? GalleryVC(imagesSource: imagesSource)
+    let galleryVC = GalleryVC(imagesSource: imagesSource)
+    self.galleryVC = galleryVC
     navController.setNavigationBarHidden(true, animated: false)
     navController.setViewControllers([galleryVC], animated: false)
     navController.navigationBar.barStyle = .blackTranslucent
@@ -29,6 +30,19 @@ public class App {
   
   private func presentDetail(for image: Image) {
     let imageViewerVC = ImageViewerVC(image: image, in: navController)
+    self.imageViewerVC = imageViewerVC
+    
+    imageViewerVC.onShare = { [unowned self] image in
+      self.shareImage(image)
+    }
+    
     navController.pushViewController(imageViewerVC, animated: true)
+  }
+  
+  private func shareImage(_ image: Image) {
+    let shareText = "Check out the image that I discovered on Image Gallery: \(image.fullResolutionURL)"
+    let items = [shareText]
+    let shareVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
+    self.navController.present(shareVC, animated: true, completion: nil)
   }
 }
