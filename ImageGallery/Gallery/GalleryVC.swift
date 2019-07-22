@@ -63,4 +63,8 @@ extension GalleryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
   public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return layout.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
   }
+  
+  public override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
 }
