@@ -13,7 +13,8 @@ public class App {
   }
   
   private func presentGallery() {
-    let galleryVC = self.galleryVC ?? GalleryVC()
+    let mockedImagesSource = MockImagesSource()
+    let galleryVC = self.galleryVC ?? GalleryVC(imagesSource: mockedImagesSource)
     navController.setViewControllers([galleryVC], animated: false)
   }
 }

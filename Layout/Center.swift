@@ -1,6 +1,6 @@
 import Foundation
 
-public extension Layout {
+extension Layout {
   public enum CenterRelation {
     case horizontally
     case vertically
