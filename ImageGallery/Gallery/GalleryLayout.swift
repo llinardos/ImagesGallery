@@ -24,3 +24,27 @@ class ColumnsCollectionViewLayout: UICollectionViewFlowLayout {
     return size
   }
 }
+
+class ByDeviceOrientationColumnsCollectionViewLayout: UICollectionViewFlowLayout {
+  private var portrait: ColumnsCollectionViewLayout
+  private var landscape: ColumnsCollectionViewLayout
+  private var current: ColumnsCollectionViewLayout!
+  
+  override init() {
+    self.portrait = ColumnsCollectionViewLayout(margins: 16, numberOfColumns: 2)
+    self.landscape = ColumnsCollectionViewLayout(margins: 16, numberOfColumns: 4)
+    super.init()
+    self.orientationChange()
+  }
+  
+  required init?(coder aDecoder: NSCoder) { return nil }
+  
+  func orientationChange() {
+    let layout = UIDevice.current.orientation.isPortrait ? self.portrait : self.landscape
+    self.current = layout
+  }
+  
+  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return current.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
+  }
+}

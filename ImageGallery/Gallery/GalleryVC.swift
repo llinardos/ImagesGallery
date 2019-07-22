@@ -4,7 +4,7 @@ import Layout
 public class GalleryVC: UIViewController {
   private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
   private var imagesSource: ImagesSource
-  private var layout = ColumnsCollectionViewLayout(margins: 16, numberOfColumns: 2)
+  private var layout = ByDeviceOrientationColumnsCollectionViewLayout()
   
   public init(imagesSource: ImagesSource) {
     self.imagesSource = imagesSource
@@ -31,6 +31,8 @@ public class GalleryVC: UIViewController {
     
     LoadingMoreCollectionCell.register(on: collectionView)
     ImageInGalleryCell.register(on: collectionView)
+    
+    layout.orientationChange()
   }
 }
 
@@ -73,5 +75,13 @@ extension GalleryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
   
   public override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
+  }
+}
+
+extension GalleryVC {
+  public override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+    self.layout.invalidateLayout()
+    self.layout.orientationChange()
   }
 }
