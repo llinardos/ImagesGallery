@@ -18,7 +18,7 @@ class ImageViewerVC: UIViewController {
     Layout().allign(.all, of: imageView, and: view, insets: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8))
     
     view.addSubview(overlayView)
-    Layout().allign([.left, .right, .bottom], of: overlayView, and: view, toSafeArea: true)
+    Layout().allign([.left, .right, .bottom], of: overlayView, and: view, toSafeArea: false)
     
     imageView.backgroundColor = .black
     

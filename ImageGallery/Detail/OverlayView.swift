@@ -34,7 +34,7 @@ class OverlayView: UIView {
     content.axis = .horizontal
     
     addSubview(content)
-    Layout().allign(.all, of: content, and: self, insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16))
+    Layout().allign(.all, of: content, and: self, toSafeArea: true, insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16))
     
     shareButton.addTarget(self, action: #selector(onShareButtonTap), for: .touchUpInside)
     
