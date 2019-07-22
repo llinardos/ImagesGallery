@@ -35,6 +35,7 @@
 		ACD98C2522E53B5C00FF6777 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD98C2422E53B5200FF6777 /* SDWebImage.framework */; };
 		ACD98C2622E53B5C00FF6777 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACD98C2422E53B5200FF6777 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACD98C2722E53B6700FF6777 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD98C2422E53B5200FF6777 /* SDWebImage.framework */; };
+		ACD98C2922E53E1300FF6777 /* GalleryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD98C2822E53E1300FF6777 /* GalleryLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		ACD98C2022E5383E00FF6777 /* ImageInGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInGalleryCell.swift; sourceTree = "<group>"; };
 		ACD98C2322E538C300FF6777 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		ACD98C2422E53B5200FF6777 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = SOURCE_ROOT; };
+		ACD98C2822E53E1300FF6777 /* GalleryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				ACD98C1922E533E600FF6777 /* ImagesSource */,
 				ACD98BFD22E52FE700FF6777 /* Cells */,
 				ACD98BD222E52C5200FF6777 /* GalleryVC.swift */,
+				ACD98C2822E53E1300FF6777 /* GalleryLayout.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				ACD98C2122E5383E00FF6777 /* ImageInGalleryCell.swift in Sources */,
 				ACD98C1B22E533F100FF6777 /* ImagesSource.swift in Sources */,
 				ACD98BFF22E52FF100FF6777 /* LoadingMoreCell.swift in Sources */,
+				ACD98C2922E53E1300FF6777 /* GalleryLayout.swift in Sources */,
 				ACD98BD322E52C5200FF6777 /* GalleryVC.swift in Sources */,
 				ACD98BD022E52C2600FF6777 /* App.swift in Sources */,
 				ACD98C1D22E5340200FF6777 /* Image.swift in Sources */,

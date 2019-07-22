@@ -15,6 +15,7 @@ public class App {
   private func presentGallery() {
     let mockedImagesSource = MockImagesSource()
     let galleryVC = self.galleryVC ?? GalleryVC(imagesSource: mockedImagesSource)
+    navController.setNavigationBarHidden(true, animated: false)
     navController.setViewControllers([galleryVC], animated: false)
   }
 }

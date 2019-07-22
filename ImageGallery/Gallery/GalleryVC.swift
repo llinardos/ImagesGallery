@@ -4,6 +4,7 @@ import Layout
 public class GalleryVC: UIViewController {
   private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
   private var imagesSource: ImagesSource
+  private var layout = ColumnsCollectionViewLayout(margins: 16, numberOfColumns: 2)
   
   public init(imagesSource: ImagesSource) {
     self.imagesSource = imagesSource
@@ -21,6 +22,7 @@ public class GalleryVC: UIViewController {
     
     self.collectionView.backgroundView = UIView()
     self.collectionView.backgroundColor = UIColor.black
+    self.collectionView.alwaysBounceVertical = true
     
     self.collectionView.delegate = self
     self.collectionView.dataSource = self
@@ -56,5 +58,9 @@ extension GalleryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         }
       }
     }
+  }
+  
+  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return layout.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
   }
 }
