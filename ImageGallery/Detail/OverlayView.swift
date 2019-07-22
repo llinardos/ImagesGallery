@@ -34,9 +34,16 @@ class OverlayView: UIView {
     content.axis = .horizontal
     
     addSubview(content)
-    Layout().allign(.all, of: content, and: self, insets: UIEdgeInsets(top: 0, left: 16, bottom: 8, right: 16))
+    Layout().allign(.all, of: content, and: self, insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16))
     
     shareButton.addTarget(self, action: #selector(onShareButtonTap), for: .touchUpInside)
+    
+    let bg = UIView()
+    bg.backgroundColor = UIColor.black
+    bg.alpha = 0.7
+    addSubview(bg)
+    sendSubviewToBack(bg)
+    Layout().allign(.all, of: bg, and: self)
   }
   
   func setLines(_ line1: String, _ line2: String) {
