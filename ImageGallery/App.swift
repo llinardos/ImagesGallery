@@ -3,8 +3,10 @@ import UIKit
 public class App {
   private lazy var navController = UINavigationController()
   private var galleryVC: GalleryVC?
+  private var imagesSource: ImagesSource
   
-  public init() {
+  public init(imagesSource: ImagesSource) {
+    self.imagesSource = imagesSource
   }
   
   public func run(on window: UIWindow) {
@@ -13,8 +15,7 @@ public class App {
   }
   
   private func presentGallery() {
-    let mockedImagesSource = MockImagesSource()
-    let galleryVC = self.galleryVC ?? GalleryVC(imagesSource: mockedImagesSource)
+    let galleryVC = self.galleryVC ?? GalleryVC(imagesSource: imagesSource)
     navController.setNavigationBarHidden(true, animated: false)
     navController.setViewControllers([galleryVC], animated: false)
   }
