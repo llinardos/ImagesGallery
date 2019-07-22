@@ -81,14 +81,9 @@ class ZoomableImageView: UIScrollView, UIScrollViewDelegate {
 }
 
 class ZoomableRemoteImageView: UIView {
-  required override init(frame: CGRect = CGRect.zero) { super.init(frame: frame); commonInit() }
-  required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder); commonInit() }
-  
-  let zoomableImageView = ZoomableImageView()
-  var spinner = UIActivityIndicatorView(style: .whiteLarge)
-  private var isLoading: Bool = false
-  
-  internal func commonInit() {
+  required override init(frame: CGRect = CGRect.zero) {
+    super.init(frame: frame)
+    
     self.backgroundColor = .black
     
     zoomableImageView.clipsToBounds = true
@@ -103,6 +98,12 @@ class ZoomableRemoteImageView: UIView {
     spinner.startAnimating()
   }
   
+  required init?(coder aDecoder: NSCoder) { return nil }
+  
+  let zoomableImageView = ZoomableImageView()
+  var spinner = UIActivityIndicatorView(style: .whiteLarge)
+  private var isLoading: Bool = false
+  
   func setImage(_ image: Image) {
     zoomableImageView.setZoomScale(1.0, animated: false)
     
@@ -110,10 +111,11 @@ class ZoomableRemoteImageView: UIView {
       return
     }
     
-    SDWebImageManager.shared.loadImage(with: image.imageURL, options: [], progress: nil) { (image, _, error, _, _, _) in
+    SDWebImageManager.shared.loadImage(with: image.fullResolutionURL, options: [], progress: nil) { (image, _, error, _, _, _) in
       self.isLoading = false
       if let image = image {
         self.spinner.isHidden = true
+        self.spinner.stopAnimating()
         self.zoomableImageView.setImage(image)
       } else {
         // TODO: do something in case of error, show error and offer retry?

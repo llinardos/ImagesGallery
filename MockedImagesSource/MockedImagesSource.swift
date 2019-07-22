@@ -34,7 +34,8 @@ public class MockImagesSource: ImagesSource {
     return Image(
       id: id,
       photographerName: "Photographer \(id) ",
-      imageURL: URL(string: "https://placehold.it/120x120&text=Mock_\(id)")!
+      thumbnailURL: URL(string: "https://placehold.it/120x120&text=Mock_\(id)")!,
+      fullResolutionURL: URL(string: "https://placehold.it/1200x1200&text=Mock_\(id)")!
     )
   }
 }

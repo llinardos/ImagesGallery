@@ -22,7 +22,7 @@ class ImageInGalleryCell: UICollectionViewCell, IdentificableCell, RegistrableOn
   
   func setup(_ image: Image) {
     spinner.startAnimating()
-    self.imageView.sd_setImage(with: image.imageURL) { (_, error, _, _) in
+    self.imageView.sd_setImage(with: image.thumbnailURL) { (_, error, _, _) in
       if error == nil {
         self.spinner.stopAnimating()
       } else {

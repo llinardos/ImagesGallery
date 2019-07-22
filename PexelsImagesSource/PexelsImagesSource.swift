@@ -81,6 +81,7 @@ class GetRandomPhotos {
     class Photo: Decodable {
       class SRC: Decodable {
         let medium: URL
+        let original: URL
       }
       
       let photographer: String
@@ -97,7 +98,8 @@ extension GetRandomPhotos.Response.Photo {
     return Image(
       id: self.id,
       photographerName: self.photographer,
-      imageURL: src.medium
+      thumbnailURL: src.medium,
+      fullResolutionURL: src.original
     )
   }
 }
