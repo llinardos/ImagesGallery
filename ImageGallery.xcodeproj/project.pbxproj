@@ -11,7 +11,7 @@
 		ACD98BB622E52B8C00FF6777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD98BB522E52B8C00FF6777 /* Assets.xcassets */; };
 		ACD98BB922E52B8C00FF6777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD98BB722E52B8C00FF6777 /* LaunchScreen.storyboard */; };
 		ACD98BC822E52BBA00FF6777 /* ImageGallery.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD98BC622E52BBA00FF6777 /* ImageGallery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ACD98BD022E52C2600FF6777 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD98BCF22E52C2600FF6777 /* App.swift */; };
+		ACD98BD022E52C2600FF6777 /* ImageGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD98BCF22E52C2600FF6777 /* ImageGallery.swift */; };
 		ACD98BD322E52C5200FF6777 /* GalleryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD98BD222E52C5200FF6777 /* GalleryVC.swift */; };
 		ACD98BDB22E52DD700FF6777 /* ImageGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD98BC422E52BBA00FF6777 /* ImageGallery.framework */; };
 		ACD98BDC22E52DD700FF6777 /* ImageGallery.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACD98BC422E52BBA00FF6777 /* ImageGallery.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -170,7 +170,7 @@
 		ACD98BC422E52BBA00FF6777 /* ImageGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD98BC622E52BBA00FF6777 /* ImageGallery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageGallery.h; sourceTree = "<group>"; };
 		ACD98BC722E52BBA00FF6777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACD98BCF22E52C2600FF6777 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		ACD98BCF22E52C2600FF6777 /* ImageGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGallery.swift; sourceTree = "<group>"; };
 		ACD98BD222E52C5200FF6777 /* GalleryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryVC.swift; sourceTree = "<group>"; };
 		ACD98BEB22E52F5E00FF6777 /* CollectionViewCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CollectionViewCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD98BED22E52F5E00FF6777 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
@@ -363,7 +363,7 @@
 			children = (
 				ACD98BC622E52BBA00FF6777 /* ImageGallery.h */,
 				ACD98BC722E52BBA00FF6777 /* Info.plist */,
-				ACD98BCF22E52C2600FF6777 /* App.swift */,
+				ACD98BCF22E52C2600FF6777 /* ImageGallery.swift */,
 				ACD98BD122E52C4B00FF6777 /* Gallery */,
 				ACD98C8D22E54EA200FF6777 /* Detail */,
 				ACD98C9422E54FB200FF6777 /* Assets.xcassets */,
@@ -910,7 +910,7 @@
 				ACD98C2922E53E1300FF6777 /* GalleryLayout.swift in Sources */,
 				ACD98C8F22E54F3C00FF6777 /* ImageViewerVC.swift in Sources */,
 				ACD98BD322E52C5200FF6777 /* GalleryVC.swift in Sources */,
-				ACD98BD022E52C2600FF6777 /* App.swift in Sources */,
+				ACD98BD022E52C2600FF6777 /* ImageGallery.swift in Sources */,
 				ACD98C1D22E5340200FF6777 /* Image.swift in Sources */,
 				ACD98C9722E54FF800FF6777 /* ZoomableImageView.swift in Sources */,
 			);

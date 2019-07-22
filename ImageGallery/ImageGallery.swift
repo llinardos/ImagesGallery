@@ -1,7 +1,7 @@
 import UIKit
 import ErrorVC
 
-public class App {
+public class ImageGallery {
   private lazy var navController = UINavigationController()
   private var galleryVC: GalleryVC?
   private var imageViewerVC: ImageViewerVC?
