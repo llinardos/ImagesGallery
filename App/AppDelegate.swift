@@ -7,7 +7,7 @@ import PexelsImagesSource
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
-  var app: ImageGallery!
+  var app: ImageGallery?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let source = PexelsImagesSource(apiKey: apiKey)
     let app = ImageGallery(imagesSource: source)
     self.app = app
+    
     app.run(on: window)
     
     window.makeKeyAndVisible()
