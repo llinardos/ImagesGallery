@@ -69,6 +69,7 @@ extension GalleryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
   }
   
   public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard indexPath.row < self.imagesSource.getImages().count else { return }
     let image = self.imagesSource.getImages()[indexPath.row]
     didSelectImage(image)
   }
