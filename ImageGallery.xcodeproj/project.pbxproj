@@ -64,6 +64,7 @@
 		ACD98C8422E54B1800FF6777 /* Async.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACD98C6F22E5459F00FF6777 /* Async.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACD98C8722E54B2E00FF6777 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD98C3E22E541C300FF6777 /* Networking.framework */; };
 		ACD98C8822E54B2E00FF6777 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACD98C3E22E541C300FF6777 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ACD98C8C22E54D5300FF6777 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ACD98C8B22E54C3E00FF6777 /* Config.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,7 @@
 		ACD98C7122E5459F00FF6777 /* Async.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Async.h; sourceTree = "<group>"; };
 		ACD98C7222E5459F00FF6777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD98C7722E545A700FF6777 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		ACD98C8B22E54C3E00FF6777 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +311,7 @@
 				ACD98BB522E52B8C00FF6777 /* Assets.xcassets */,
 				ACD98BB722E52B8C00FF6777 /* LaunchScreen.storyboard */,
 				ACD98BBA22E52B8C00FF6777 /* Info.plist */,
+				ACD98C8B22E54C3E00FF6777 /* Config.xcconfig */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD98BB922E52B8C00FF6777 /* LaunchScreen.storyboard in Resources */,
+				ACD98C8C22E54D5300FF6777 /* Config.xcconfig in Resources */,
 				ACD98BB622E52B8C00FF6777 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1031,6 +1035,7 @@
 		};
 		ACD98BBC22E52B8C00FF6777 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACD98C8B22E54C3E00FF6777 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1055,6 +1060,7 @@
 		};
 		ACD98BBD22E52B8C00FF6777 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACD98C8B22E54C3E00FF6777 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

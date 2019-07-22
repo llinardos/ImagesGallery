@@ -14,8 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let window = UIWindow(frame: UIScreen.main.bounds)
     self.window = window
     
-    let source = MockImagesSource()
-//    let source = PexelsImagesSource(apiKey: "")
+//    let source = MockImagesSource()
+    
+    let apiKey = readPexelsAPIKeyFromInfoPlist() ?? ""
+    let source = PexelsImagesSource(apiKey: apiKey)
     let app = App(imagesSource: source)
     app.run(on: window)
     
@@ -23,4 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     return true
   }
+}
+
+public func readPexelsAPIKeyFromInfoPlist() -> String? {
+  return Bundle.main.object(forInfoDictionaryKey: "PEXELS_API_KEY").flatMap({ $0 as? String })
 }
