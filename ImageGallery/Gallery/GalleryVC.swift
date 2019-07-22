@@ -29,6 +29,7 @@ public class GalleryVC: UIViewController {
     
     self.collectionView.delegate = self
     self.collectionView.dataSource = self
+    self.collectionView.contentInsetAdjustmentBehavior = .always
     
     LoadingMoreCollectionCell.register(on: collectionView)
     ImageInGalleryCell.register(on: collectionView)

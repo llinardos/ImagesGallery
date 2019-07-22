@@ -18,6 +18,7 @@ class ColumnsCollectionViewLayout: UICollectionViewFlowLayout {
     let layout = collectionViewLayout as! UICollectionViewFlowLayout
     var size = CGSize(width: 0.0, height: 0.0)
     var availableWidth = collectionView.frame.width
+    availableWidth -= collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right
     availableWidth -= CGFloat(numberOfColumns - 1)*layout.minimumInteritemSpacing
     size.width = availableWidth/CGFloat(numberOfColumns)
     size.height = size.width
