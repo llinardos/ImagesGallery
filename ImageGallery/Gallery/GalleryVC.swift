@@ -93,9 +93,9 @@ extension GalleryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
 }
 
 extension GalleryVC {
-  public override func viewWillLayoutSubviews() {
-    super.viewWillLayoutSubviews()
-    self.layout.invalidateLayout()
+  public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    super.viewWillTransition(to: size, with: coordinator)
     self.layout.orientationChange()
+    self.layout.invalidateLayout()
   }
 }
