@@ -82,5 +82,9 @@ class ImageViewerVC: UIViewController {
       navController.setNavigationBarHidden(showingNavbarBeforePresenting, animated: true)
     }
   }
+  
+  public override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
 }
 

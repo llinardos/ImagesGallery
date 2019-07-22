@@ -19,6 +19,8 @@ public class App {
     let galleryVC = self.galleryVC ?? GalleryVC(imagesSource: imagesSource)
     navController.setNavigationBarHidden(true, animated: false)
     navController.setViewControllers([galleryVC], animated: false)
+    navController.navigationBar.barStyle = .blackTranslucent
+    navController.navigationBar.tintColor = UIColor.white
     
     galleryVC.didSelectImage = { [unowned self] image in
       self.presentDetail(for: image)
